@@ -5,9 +5,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--color-primary, #3b82f6)',
-        secondary: 'var(--color-secondary, #10b981)',
-        destructive: 'var(--color-destructive, #ef4444)',
+        primary: {
+          DEFAULT: 'var(--color-primary, #3b82f6)',
+          dark: 'var(--color-primary-dark, #1e40af)',
+        },
+        secondary: {
+          DEFAULT: 'var(--color-secondary, #10b981)',
+          dark: 'var(--color-secondary-dark, #047857)',
+        },
+        destructive: {
+          DEFAULT: 'var(--color-destructive, #ef4444)',
+          dark: 'var(--color-destructive-dark, #b91c1c)',
+        },
         ghost: 'var(--color-ghost, #f3f4f6)',
       },
       spacing: {
@@ -21,6 +30,21 @@ export default {
         sm: 'var(--radius-sm, 0.375rem)',
         md: 'var(--radius-md, 0.5rem)',
         lg: 'var(--radius-lg, 0.75rem)',
+      },
+      animation: {
+        in: 'fadeIn 200ms ease-in',
+        out: 'fadeOut 200ms ease-out',
+        spin: 'spin 1s linear infinite',
+      },
+      keyframes: {
+        fadeIn: {
+          from: { opacity: '0' },
+          to: { opacity: '1' },
+        },
+        fadeOut: {
+          from: { opacity: '1' },
+          to: { opacity: '0' },
+        },
       },
     },
   },

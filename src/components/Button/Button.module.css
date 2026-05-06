@@ -3,7 +3,7 @@
 }
 
 .primary {
-  @apply bg-primary text-white hover:bg-primary-dark focus:outline-primary;
+  @apply bg-primary text-white hover:bg-primary-dark focus:outline-primary-dark;
 }
 
 .secondary {
@@ -11,7 +11,7 @@
 }
 
 .destructive {
-  @apply bg-destructive text-white hover:bg-destructive-dark focus:outline-destructive;
+  @apply bg-destructive text-white hover:bg-destructive-dark focus:outline-destructive-dark;
 }
 
 .ghost {
