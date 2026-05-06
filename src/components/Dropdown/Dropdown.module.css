@@ -13,7 +13,15 @@
 }
 
 .item {
-  @apply flex cursor-pointer select-none items-center rounded-md px-2 py-2 text-sm text-gray-700 outline-none hover:bg-gray-100 focus:bg-gray-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50;
+  @apply flex cursor-pointer select-none items-center justify-between rounded-md px-3 py-2 text-sm text-gray-700 outline-none hover:bg-gray-100 focus:bg-gray-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50;
+}
+
+.selected {
+  @apply bg-blue-50 font-medium text-primary;
+}
+
+.checkmark {
+  @apply ml-2 text-primary font-bold;
 }
 
 .disabled {

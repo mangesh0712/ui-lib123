@@ -11,29 +11,42 @@ export interface DropdownItem {
 }
 
 export interface DropdownProps {
-  trigger: React.ReactNode;
+  trigger?: React.ReactNode;
+  placeholder?: string;
   items: DropdownItem[];
+  value?: string;
+  onValueChange?: (itemId: string) => void;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
 }
 
 const Dropdown = React.forwardRef<HTMLButtonElement, DropdownProps>(
-  ({ trigger, items, open, onOpenChange }, ref) => {
+  (
+    { trigger, placeholder = 'Select...', items, value, onValueChange, open, onOpenChange },
+    ref
+  ) => {
+    const selectedItem = items.find((item) => item.id === value);
+    const displayValue = selectedItem?.label || trigger || placeholder;
+
     return (
       <DropdownMenu.Root open={open} onOpenChange={onOpenChange}>
         <DropdownMenu.Trigger ref={ref} className={styles.trigger} asChild>
-          <button className={styles.triggerButton}>{trigger}</button>
+          <button className={styles.triggerButton}>{displayValue}</button>
         </DropdownMenu.Trigger>
         <DropdownMenu.Portal>
           <DropdownMenu.Content className={styles.content} align="start" sideOffset={5}>
             {items.map((item) => (
               <DropdownMenu.Item
                 key={item.id}
-                className={clsx(styles.item, item.disabled && styles.disabled)}
-                onSelect={item.onSelect}
+                className={clsx(styles.item, item.disabled && styles.disabled, value === item.id && styles.selected)}
+                onSelect={() => {
+                  onValueChange?.(item.id);
+                  item.onSelect?.();
+                }}
                 disabled={item.disabled}
               >
                 {item.label}
+                {value === item.id && <span className={styles.checkmark}>✓</span>}
               </DropdownMenu.Item>
             ))}
           </DropdownMenu.Content>
