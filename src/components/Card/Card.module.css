@@ -1,0 +1,27 @@
+.card {
+  @apply rounded-lg border border-gray-200 bg-white shadow-sm;
+}
+
+.header {
+  @apply border-b border-gray-200 font-semibold text-gray-900;
+}
+
+.content {
+  @apply text-gray-700;
+}
+
+.footer {
+  @apply border-t border-gray-200 text-sm text-gray-600;
+}
+
+.padding-sm {
+  @apply p-2;
+}
+
+.padding-md {
+  @apply p-4;
+}
+
+.padding-lg {
+  @apply p-6;
+}

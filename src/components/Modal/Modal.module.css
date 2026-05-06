@@ -1,0 +1,27 @@
+.overlay {
+  @apply fixed inset-0 bg-black/50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0;
+}
+
+.content {
+  @apply fixed left-1/2 top-1/2 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-lg border border-gray-200 bg-white shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%];
+}
+
+.header {
+  @apply relative flex flex-col gap-2 border-b border-gray-200 p-6;
+}
+
+.title {
+  @apply text-lg font-semibold text-gray-900;
+}
+
+.description {
+  @apply text-sm text-gray-600;
+}
+
+.close {
+  @apply absolute right-4 top-4 rounded-md p-1 text-2xl text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-900 focus:outline-2 focus:outline-offset-2 focus:outline-primary;
+}
+
+.body {
+  @apply p-6;
+}
